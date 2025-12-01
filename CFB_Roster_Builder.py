@@ -36,7 +36,7 @@ POSITIONS = {
 }
 
 # Desired sort order (QB first, P last)
-POSITION_ORDER = ["QB", "RB", "WR", "TE", "LT", "LG","C","RG","RT","LE","RE","DT",
+POSITION_ORDER = ["QB", "RB", "FB", "WR", "TE", "LT", "LG","C","RG","RT","LE","RE","DT",
                   "SAM", "MIKE", "WILL", "CB", "FS", "SS", "K", "P"]
 POSITION_INDEX = {pos: i for i, pos in enumerate(POSITION_ORDER)}
 
@@ -370,5 +370,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
