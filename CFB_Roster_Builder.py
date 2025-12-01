@@ -73,7 +73,7 @@ ALLOWED_NUMBERS = {
 }
 
 # Dev trait distribution (increasingly rare)
-DEV_TRAITS = ["Normal", "Impact", "Star", "Superstar"]
+DEV_TRAITS = ["Normal", "Impact", "Star", "Elite"]
 DEV_WEIGHTS = [0.70, 0.20, 0.08, 0.02]  # sum to 1
 
 # Potential distribution (median most common)
@@ -381,6 +381,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
