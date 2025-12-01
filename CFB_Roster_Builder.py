@@ -1,10 +1,14 @@
 
+
 import random
 import os
 from datetime import datetime
 
 
 import pandas as pd
+from attributes_integration import generate_attributes_for_roster, load_schema
+
+
 
 # Optional: reproducibility
 # random.seed(42)
@@ -29,10 +33,10 @@ POSITIONS = {
     "MIKE": 4,
     "WILL": 4,
     "CB": 8,
-    "FS":3,
+    "FS":4,
     "SS":3,
     "K": 2,
-    "P": 1,
+    "P":1
 }
 
 # Desired sort order (QB first, P last)
@@ -79,7 +83,7 @@ POT_WEIGHTS = [0.20, 0.60, 0.20]
 # Handedness realistic distribution by position (probability of Right-handed)
 HANDEDNESS_BY_POSITION = {
     # Most positions heavily right-handed; kickers/punters slightly more varied
-   "QB": 0.90,
+    "QB": 0.90,
     "RB": 0.85,
     "WR": 0.85,
     "TE": 0.88,
@@ -267,6 +271,10 @@ def generate_roster():
                 "Number": numbers_flat[idx_num],
                 "Position": position,
                 "Year": years[idx_year],
+                # NEW: random SkinTone and Head values 1-8
+                "SkinTone": random.randint(1, 8),
+                "Head": random.randint(1, 8),
+
                 # placeholders for attributes to be filled later
             })
             idx_num += 1
@@ -285,40 +293,48 @@ def generate_roster():
 
     return roster, avg
 
-def export_to_excel(roster, avg_overall, filename):
-    df = pd.DataFrame(roster, columns=[
-        "FirstName", "LastName", "Number", "Position", "Year", "Overall",
-        "DevTrait", "Potential", "Handedness", "Archetype"
-    ])
+def export_to_excel(roster_with_attrs, avg_overall, filename, schema_path="schema.json"):
+    schema = load_schema(schema_path)
+    attr_order = schema["attr_order"]
 
-    # Map position order and ensure Overall is numeric
+    core_cols = ["FirstName", "LastName", "Number", "Position", "Year", "Overall", "_ComputedOverall"]
+    meta_cols = ["DevTrait", "Potential", "Handedness", "Archetype"]
+    # Insert SkinTone and Head before attributes
+    appearance_cols = ["SkinTone", "Head"]
+    all_columns = core_cols + meta_cols + appearance_cols + attr_order
+
+    df = pd.DataFrame(roster_with_attrs)
+    for col in all_columns:
+        if col not in df.columns:
+            df[col] = ""
+
     df["PosOrder"] = df["Position"].map(lambda p: POSITION_INDEX.get(p, 999))
     df["Overall"] = pd.to_numeric(df["Overall"], errors="coerce").fillna(0).astype(int)
-
-    # Sort by position order, then by Overall descending within each position, then by Number
+    df["_ComputedOverall"] = pd.to_numeric(df.get("_ComputedOverall", 0), errors="coerce").fillna(0)
     df = df.sort_values(by=["PosOrder", "Overall", "Number"], ascending=[True, False, True]).drop(columns=["PosOrder"]).reset_index(drop=True)
 
     meta = pd.DataFrame({
-        "Field": ["Generated On", "Total Players", "Average Overall", "Name Sources"],
+        "Field": ["Generated On", "Total Players", "Average Overall", "Schema File"],
         "Value": [
             datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             len(df),
             f"{avg_overall:.2f}",
-            f"first_names.txt ({'found' if os.path.exists('first_names.txt') else 'fallback'}), "
-            f"last_names.txt ({'found' if os.path.exists('last_names.txt') else 'fallback'})"
+            os.path.abspath(schema_path)
         ]
     })
 
-    # Ensure .xlsx extension
     if not filename.lower().endswith(".xlsx"):
         filename = filename + ".xlsx"
 
     with pd.ExcelWriter(filename, engine="openpyxl") as writer:
-        df.to_excel(writer, index=False, sheet_name="Roster")
+        df.to_excel(writer, index=False, sheet_name="Roster", columns=all_columns)
         meta.to_excel(writer, index=False, sheet_name="Meta")
 
     return filename
 
+
+
+# ---------- Prompts ----------
 def prompt_filename():
     while True:
         name = input("Enter a name for the new spreadsheet (no extension): ").strip()
@@ -331,8 +347,8 @@ def prompt_filename():
             print("Filename invalid after sanitization. Try a different name.")
             continue
         return cleaned + ".xlsx"
+
 def prompt_yes_no(prompt):
-    """Ask a yes/no question and return True for yes, False for no."""
     while True:
         ans = input(f"{prompt} (y/n): ").strip().lower()
         if ans in ("y", "yes"):
@@ -341,35 +357,33 @@ def prompt_yes_no(prompt):
             return False
         print("Please answer 'y' or 'n'.")
 
-
+# ---------- Main ----------
 def main():
     try:
         while True:
             roster, avg = generate_roster()
+            # generate attributes for roster (this will attach 54 attributes and _ComputedOverall)
+            roster_with_attrs = generate_attributes_for_roster(roster, schema_path="schema.json", rng_seed=None, match_target_overall=True)
+
             filename = prompt_filename()
             try:
-                out_file = export_to_excel(roster, avg, filename)
+                out_file = export_to_excel(roster_with_attrs, avg, filename, schema_path="schema.json")
                 print(f"Excel roster written to: {out_file}")
-                print(f"Total players: {len(roster)}  Average Overall: {avg:.2f}")
+                print(f"Total players: {len(roster_with_attrs)}  Average Overall: {avg:.2f}")
             except Exception as e:
                 print(f"Error exporting to Excel: {e}")
 
-            # Ask user if they'd like to run again
-            again = prompt_yes_no("Would you like to generate another roster")
-            if not again:
+            if not prompt_yes_no("Would you like to generate another roster"):
                 print("Done. Goodbye.")
                 break
     except KeyboardInterrupt:
         print("\nInterrupted. Exiting.")
 
-
-   
-
-
-
-
 if __name__ == "__main__":
     main()
+
+
+
 
 
 
