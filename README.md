@@ -13,3 +13,6 @@ In Order to use this, download the Json File and Attribute Generator python file
 I have also added skin tone and head generator incase someone wants to use that to decided how their players look.
 Please note this is extremely rudimentary and will give values that might be unrealistic to gameplay and actual roster generation in CFB 26
 Please leave any feedback, adjustments you would make the weights, and requests to my reddit:https://www.reddit.com/user/Any-Consequence37/
+
+I have also made a valuetestr. This program runs the generation 100 times then creates graphs where the user can see ranges for the attributes
+a position and archetype might have. Requires seaborn to run.
