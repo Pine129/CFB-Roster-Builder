@@ -1,0 +1,258 @@
+{
+  "attr_order": [
+    "Speed","Strength","Agility","Acceleration","Awareness",
+    "Break Tackle","Trucking","Change of Direction","Ball Carrier Vision",
+    "Stiff Arm","Spin Move","Juke Move","Carrying","Catching",
+    "Short Route Running","Medium Route Running","Deep Route Running",
+    "Catch in Traffic","Spectacular Catch","Release","Jumping",
+    "Throw Power","Throw on the Run","Throw Under Pressure","Break Sack",
+    "Play Action","Tackle","Hit Power","Power Moves","Finesse Moves",
+    "Block Shedding","Pursuit","Play Recognition","Man Coverage","Zone Coverage",
+    "Long Snap","Press","Pass Block","Pass Block Power","Pass Block Finesse",
+    "Run Block","Run Block Power","Run Block Finesse","Lead Block","Impact Blocking",
+    "Kick Power","Kick Accuracy","Return","Stamina","Injury","Toughness"
+  ],
+
+  "defaults": {
+    "base_value": 50,
+    "min_attr": 20,
+    "max_attr": 99
+  },
+
+  "positions": {
+    "default": {},
+    "QB": {
+      "Speed": 62, "Acceleration": 63, "Agility": 60,
+      "Awareness": 70, "Throw Power": 78, "Throw on the Run": 72,
+      "Throw Under Pressure": 70, "Play Action": 68, "Play Recognition": 68,
+      "Stamina": 72, "Injury": 88, "Toughness": 70
+    },
+    "RB": {
+      "Speed": 80, "Acceleration": 78, "Agility": 76, "Change of Direction": 75,
+      "Break Tackle": 70, "Trucking": 68, "Carrying": 78, "Ball Carrier Vision": 74,
+      "Spin Move": 72, "Juke Move": 72, "Stamina": 75, "Toughness": 72
+    },
+    "FB": {
+      "Strength": 80, "Lead Block": 78, "Impact Blocking": 76, "Run Block": 72,
+      "Run Block Power": 70, "Toughness": 78, "Stamina": 72
+    },
+    "WR": {
+      "Speed": 84, "Acceleration": 82, "Agility": 78, "Release": 76,
+      "Short Route Running": 76, "Medium Route Running": 74, "Deep Route Running": 72,
+      "Catching": 78, "Catch in Traffic": 70, "Spectacular Catch": 72,
+      "Jumping": 74, "Stamina": 72
+    },
+    "TE": {
+      "Strength": 74, "Catching": 72, "Short Route Running": 68, "Medium Route Running": 66,
+      "Run Block": 70, "Lead Block": 68, "Impact Blocking": 70, "Jumping": 72,
+      "Stamina": 72
+    },
+    "LT": {
+      "Strength": 78, "Pass Block": 80, "Pass Block Power": 78, "Run Block": 76,
+      "Run Block Power": 74, "Block Shedding": 40, "Stamina": 74, "Toughness": 76
+    },
+    "LG": {
+      "Strength": 76, "Pass Block": 78, "Pass Block Power": 76, "Run Block": 76,
+      "Run Block Power": 74, "Block Shedding": 42, "Stamina": 74
+    },
+    "C": {
+      "Strength": 76, "Pass Block": 76, "Pass Block Power": 75, "Run Block": 77,
+      "Run Block Power": 76, "Long Snap": 60, "Block Shedding": 44, "Stamina": 74
+    },
+    "RG": {
+      "Strength": 76, "Pass Block": 78, "Pass Block Power": 76, "Run Block": 76,
+      "Run Block Power": 74, "Stamina": 74
+    },
+    "RT": {
+      "Strength": 78, "Pass Block": 80, "Pass Block Power": 78, "Run Block": 76,
+      "Run Block Power": 74, "Stamina": 74
+    },
+    "LE": {
+      "Speed": 76, "Acceleration": 74, "Power Moves": 74, "Finesse Moves": 70,
+      "Pursuit": 72, "Press": 74, "Tackle": 66, "Stamina": 72
+    },
+    "RE": {
+      "Speed": 76, "Acceleration": 74, "Power Moves": 74, "Finesse Moves": 70,
+      "Pursuit": 72, "Press": 74, "Tackle": 66, "Stamina": 72
+    },
+    "DT": {
+      "Strength": 78, "Hit Power": 76, "Block Shedding": 74, "Tackle": 72,
+      "Power Moves": 70, "Stamina": 72
+    },
+    "SAM": {
+      "Speed": 74, "Acceleration": 72, "Man Coverage": 70, "Zone Coverage": 68,
+      "Pursuit": 72, "Tackle": 70
+    },
+    "MIKE": {
+      "Awareness": 74, "Tackle": 78, "Pursuit": 74, "Play Recognition": 72, "Stamina": 74
+    },
+    "WILL": {
+      "Speed": 76, "Acceleration": 75, "Pursuit": 76, "Tackle": 74, "Agility": 74
+    },
+    "CB": {
+      "Speed": 82, "Acceleration": 80, "Man Coverage": 78, "Zone Coverage": 76,
+      "Press": 74, "Jumping": 72, "Stamina": 72
+    },
+    "FS": {
+      "Speed": 80, "Acceleration": 78, "Agility": 78, "Awareness": 76,
+      "Zone Coverage": 74, "Ball Carrier Vision": 74, "Tackle": 72, "Stamina": 74
+    },
+    "SS": {
+      "Speed": 78, "Acceleration": 76, "Agility": 76, "Tackle": 76,
+      "Hit Power": 74, "Awareness": 72, "Zone Coverage": 70, "Stamina": 74
+    },
+    "K": {
+      "Kick Power": 78, "Kick Accuracy": 76, "Stamina": 60
+    },
+    "P": {
+      "Kick Power": 76, "Kick Accuracy": 70, "Stamina": 60
+    },
+    "LS": {
+      "Long Snap": 78, "Stamina": 70
+    }
+  },
+
+  "archetypes": {
+    "Pocket Passer": {"Throw Under Pressure": 4, "Play Recognition": 3, "Throw Power": 2, "Speed": -2},
+    "Backfield Creator": {"Throw on the Run": 4, "Play Action": 3, "Awareness": 2, "Agility": 2},
+    "Dual Threat": {"Speed": 5, "Acceleration": 4, "Agility": 4, "Throw on the Run": 3},
+    "Pure Runner": {"Speed": 6, "Acceleration": 5, "Change of Direction": 5, "Agility": 4},
+
+    "Contact Seeker": {"Trucking": 5, "Break Tackle": 4, "Strength": 3, "Hit Power": 3},
+    "East/West Playmaker": {"Agility": 5, "Juke Move": 4, "Spin Move": 3, "Carrying": 3},
+    "Backfield Threat": {"Carrying": 5, "Break Tackle": 4, "Ball Carrier Vision": 3, "Stamina": 2},
+    "North/South Blocker": {"Lead Block": 5, "Impact Blocking": 4, "Run Block": 3, "Strength": 3},
+    "North/South Receiver": {"Carrying": 4, "Speed": 4, "Acceleration": 3, "Return": 3},
+    "Elusive Bruiser": {"Break Tackle": 4, "Juke Move": 4, "Strength": 3, "Carrying": 3},
+
+    "Blocking": {"Run Block": 5, "Impact Blocking": 4, "Lead Block": 3, "Strength": 3},
+    "Utility": {"Carrying": 3, "Catching": 3, "Pass Block": 3, "Stamina": 2},
+
+    "Route Artist": {"Short Route Running": 6, "Release": 4, "Catching": 3, "Medium Route Running": 2},
+    "Speedster": {"Speed": 7, "Acceleration": 5, "Deep Route Running": 4, "Release": 2},
+    "Physical Route Runner": {"Catching": 4, "Catch in Traffic": 4, "Strength": 3, "Jumping": 2},
+    "Elusive Route Runner": {"Agility": 5, "Juke Move": 4, "Short Route Running": 3, "Catching": 2},
+    "Gritty Possession": {"Catching": 5, "Catch in Traffic": 4, "Release": 2, "Stamina": 2},
+    "Gadget": {"Return": 5, "Catching": 3, "Juke Move": 3, "Acceleration": 2},
+    "Contested Specialist": {"Catch in Traffic": 6, "Jumping": 4, "Catching": 3, "Strength": 2},
+
+    "Physical Route Runner TE": {"Catching": 4, "Short Route Running": 4, "Run Block": 3, "Strength": 3},
+    "Vertical Threat": {"Deep Route Running": 6, "Speed": 4, "Jumping": 3, "Spectacular Catch": 2},
+    "Pure Blocker": {"Pass Block": 4, "Run Block": 6, "Impact Blocking": 4, "Strength": 4},
+    "Gritty Possession TE": {"Catching": 4, "Catch in Traffic": 4, "Stamina": 2, "Strength": 2},
+    "Pure Possession": {"Catching": 5, "Catch in Traffic": 4, "Release": 3, "Jumping": 2},
+
+    "Pass Protector": {"Pass Block": 6, "Pass Block Power": 4, "Pass Block Finesse": 3, "Awareness": 2},
+    "Raw Strength": {"Strength": 6, "Run Block Power": 4, "Impact Blocking": 3, "Strength": 3},
+    "Well Rounded": {"Pass Block": 3, "Run Block": 3, "Awareness": 3, "Stamina": 2},
+    "Agile": {"Agility": 5, "Acceleration": 4, "Pass Block Finesse": 3, "Speed": 2},
+
+    "Speed Rusher": {"Speed": 5, "Power Moves": 5, "Finesse Moves": 3, "Press": 3},
+    "Power Rusher": {"Power Moves": 6, "Hit Power": 4, "Strength": 3, "Pursuit": 2},
+    "Pure Power": {"Strength": 6, "Hit Power": 5, "Power Moves": 4, "Block Shedding": 3},
+    "Edge Setter": {"Press": 5, "Pursuit": 4, "Power Moves": 3, "Awareness": 2},
+
+    "Gap Specialist": {"Block Shedding": 5, "Tackle": 4, "Strength": 3, "Pursuit": 2},
+
+    "Signal Caller": {"Awareness": 5, "Play Recognition": 4, "Pass Block": 2},
+    "Lurker": {"Pursuit": 4, "Tackle": 4, "Play Recognition": 3, "Awareness": 2},
+    "Thumper": {"Hit Power": 5, "Tackle": 5, "Strength": 3, "Block Shedding": 2},
+
+    "Bump and Run": {"Press": 6, "Man Coverage": 5, "Strength": 3, "Jumping": 2},
+    "Boundary": {"Man Coverage": 5, "Press": 4, "Speed": 3, "Tackle": 2},
+    "Zone": {"Zone Coverage": 6, "Awareness": 4, "Ball Carrier Vision": 3, "Pursuit": 2},
+    "Field": {"Zone Coverage": 5, "Speed": 4, "Ball Carrier Vision": 3, "Catch in Traffic": 2},
+
+    "Coverage Specialist": {"Zone Coverage": 6, "Awareness": 4, "Ball Carrier Vision": 3, "Speed": 2},
+    "Hybrid": {"Man Coverage": 4, "Zone Coverage": 4, "Tackle": 3, "Speed": 2},
+    "Box Specialist": {"Tackle": 5, "Hit Power": 4, "Strength": 3, "Pursuit": 2},
+
+    "Accuracy": {"Kick Accuracy": 6, "Kick Power": 2, "Stamina": 2},
+    "Power": {"Kick Power": 6, "Kick Accuracy": 2},
+
+    "Power Punter": {"Kick Power": 6, "Kick Accuracy": 2},
+    "Accurate Punter": {"Kick Accuracy": 6, "Kick Power": 3}
+  },
+
+  "covariance_blocks": {
+    "speed_block": {
+      "attrs": ["Speed","Acceleration","Agility","Change of Direction"],
+      "cov": [
+        [1.00,0.72,0.68,0.65],
+        [0.72,1.00,0.66,0.62],
+        [0.68,0.66,1.00,0.64],
+        [0.65,0.62,0.64,1.00]
+      ]
+    },
+    "catching_block": {
+      "attrs": ["Catching","Catch in Traffic","Spectacular Catch","Jumping","Release"],
+      "cov": [
+        [1.00,0.72,0.68,0.60,0.58],
+        [0.72,1.00,0.66,0.58,0.56],
+        [0.68,0.66,1.00,0.56,0.54],
+        [0.60,0.58,0.56,1.00,0.50],
+        [0.58,0.56,0.54,0.50,1.00]
+      ]
+    },
+    "blocking_block": {
+      "attrs": ["Pass Block","Pass Block Power","Run Block","Run Block Power","Strength"],
+      "cov": [
+        [1.00,0.72,0.68,0.66,0.60],
+        [0.72,1.00,0.66,0.64,0.58],
+        [0.68,0.66,1.00,0.62,0.56],
+        [0.66,0.64,0.62,1.00,0.54],
+        [0.60,0.58,0.56,0.54,1.00]
+      ]
+    },
+    "pass_rush_block": {
+      "attrs": ["Power Moves","Finesse Moves","Press","Pursuit"],
+      "cov": [
+        [1.00,0.68,0.62,0.60],
+        [0.68,1.00,0.60,0.58],
+        [0.62,0.60,1.00,0.56],
+        [0.60,0.58,0.56,1.00]
+      ]
+    }
+  },
+
+  "dev_potential_modifiers": {
+    "DevTrait": {
+      "Normal": {"variance_scale": 1.0, "ceiling_bonus": 0},
+      "Impact": {"variance_scale":
+ 1.05, "ceiling_bonus": 3},
+      "Star": {"variance_scale": 1.10, "ceiling_bonus": 6},
+      "Superstar": {"variance_scale": 1.18, "ceiling_bonus": 10}
+    },
+    "Potential": {
+      "Low": {"mean_shift": -3, "variance_scale": 0.95},
+      "Medium": {"mean_shift": 0, "variance_scale": 1.0},
+      "High": {"mean_shift": 3, "variance_scale": 1.08}
+    }
+  },
+
+  "weights_for_overall": {
+    "default": {
+      "Awareness": 0.08, "Speed": 0.06, "Strength": 0.05, "Tackle": 0.04, "Catching": 0.04, "Carrying": 0.04
+    },
+    "QB": {
+      "Throw Power": 0.18, "Throw on the Run": 0.12, "Throw Under Pressure": 0.10, "Play Recognition": 0.10, "Awareness": 0.06
+    },
+    "WR": {
+      "Speed": 0.16, "Catching": 0.14, "Release": 0.12, "Short Route Running": 0.10, "Deep Route Running": 0.10
+    },
+    "RB": {
+      "Carrying": 0.14, "Speed": 0.12, "Acceleration": 0.10, "Break Tackle": 0.10, "Trucking": 0.06
+    },
+    "TE": {
+      "Catching": 0.12, "Short Route Running": 0.10, "Pass Block": 0.10, "Run Block": 0.10, "Strength": 0.08
+    },
+    "LT": {"Pass Block": 0.30, "Pass Block Power": 0.22, "Strength": 0.18, "Run Block": 0.15},
+    "LE": {"Power Moves": 0.28, "Press": 0.20, "Pursuit": 0.18, "Speed": 0.12},
+    "DT": {"Strength": 0.30, "Block Shedding": 0.22, "Hit Power": 0.18, "Tackle": 0.12},
+    "CB": {"Man Coverage": 0.28, "Zone Coverage": 0.22, "Speed": 0.18, "Press": 0.12}
+  },
+
+  "notes": {
+    "usage": "This schema uses the 54 attribute names you provided and the archetype set you supplied. Safeties (FS and SS) have been adjusted to be faster by default. Position bases and archetype modifiers are additive. Covariance blocks create correlated noise. DevTrait and Potential adjust variance and mean. Tune position bases and archetype modifiers to refine realism."
+  }
+}
