@@ -16,7 +16,7 @@ POSITIONS = {
     "RB": 6,
     "FB":1,
     "WR": 9,
-    "TE": 6,
+    "TE": 5,
     "LT": 3,
     "LG": 3,
     "C": 3,
@@ -32,6 +32,7 @@ POSITIONS = {
     "FS":3,
     "SS":3,
     "K": 2,
+    "P": 1,
 }
 
 # Desired sort order (QB first, P last)
@@ -250,11 +251,9 @@ def choose_archetype(position):
 
 def generate_roster():
     total_players = sum(POSITIONS.values())
-    if total_players != 84:
-        raise ValueError(f"Roster config must total 84; current total is {total_players}.")
 
     numbers_flat = assign_numbers_by_position(POSITIONS, ALLOWED_NUMBERS)
-    years = distribute_years(84)
+    years = distribute_years(total_players)
 
     roster = []
     idx_num = 0
@@ -371,4 +370,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
