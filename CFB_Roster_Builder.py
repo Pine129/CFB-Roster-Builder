@@ -7,7 +7,8 @@ from datetime import datetime
 import pandas as pd
 
 # Optional: reproducibility
-# random.seed(42)
+# random.seed(42)
+
 
 # Define possible positions with typical counts for a college football roster
 POSITIONS = {
@@ -42,10 +43,11 @@ ACADEMIC_YEARS = ["FR", "SO", "JR", "SR"]
 
 # Position-based allowed jersey number ranges (adjustable)
 ALLOWED_NUMBERS = {
-    "QB": list(range(1, 20)),                       # 1–19
-    "RB": list(range(1, 50)) + list(range(80, 90)), # 1–49, 80–89
-    "WR": list(range(1, 50)) + list(range(80, 90)),
-    "TE": list(range(1, 50)) + list(range(80, 90)),
+    "QB": list(range(0, 20)),                       # 1–19
+    "RB": list(range(0, 50)) + list(range(80, 90)),
+    "FB": list(range(0, 50)) + list(range(80, 90)),# 1–49, 80–89
+    "WR": list(range(0, 20)) + list(range(80, 90)),
+    "TE": list(range(0, 50)) + list(range(80, 90)),
     "OL": list(range(50, 80)),
     "LT": list(range(50, 80)),
     "LG": list(range(50, 80)),
@@ -55,11 +57,14 @@ ALLOWED_NUMBERS = {
     "LE": list(range(50, 80)) + list(range(90, 100)),
     "RE": list(range(50, 80)) + list(range(90, 100)),
     "DT": list(range(50, 80)) + list(range(90, 100)),
-    "LB": list(range(1, 60)) + list(range(90, 100)),
-    "DB": list(range(1, 50)),
-    "K": list(range(1, 50)) + list(range(90, 100)),
-    "P": list(range(1, 50)) + list(range(90, 100)),
-    "LS": list(range(40, 80)),
+    "SAM": list(range(0, 60)) + list(range(90, 100)),
+    "MIKE": list(range(0, 60)) + list(range(90, 100)),
+    "WILL": list(range(0, 60)) + list(range(90, 100)),
+    "CB": list(range(0, 50)),
+    "FS": list(range(0, 50)),
+    "SS": list(range(0, 50)),
+    "K": list(range(0, 50)) + list(range(90, 100)),
+    "P": list(range(0, 50)) + list(range(90, 100)),
 }
 
 # Dev trait distribution (increasingly rare)
@@ -73,17 +78,26 @@ POT_WEIGHTS = [0.20, 0.60, 0.20]
 # Handedness realistic distribution by position (probability of Right-handed)
 HANDEDNESS_BY_POSITION = {
     # Most positions heavily right-handed; kickers/punters slightly more varied
-    "QB": 0.90,
+   "QB": 0.90,
     "RB": 0.85,
     "WR": 0.85,
     "TE": 0.88,
-    "OL": 0.95,
-    "DL": 0.95,
-    "LB": 0.90,
-    "DB": 0.90,
+    "LT": 0.95,
+    "LG": 0.95,
+    "C": 0.95,
+    "RG": 0.95,
+    "RT": 0.95,
+    "LE": 0.95,
+    "RE": 0.95,
+    "DT": 0.95,
+    "MIKE": 0.90,
+    "SAM": 0.90,
+    "WILL": 0.90,
+    "CB": 0.90,
+    "FS": 0.90,
+    "SS": 0.90,
     "K": 0.80,
     "P": 0.80,
-    "LS": 0.95,
 }
 
 # Positional archetypes (examples; expand as desired)
@@ -357,3 +371,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
