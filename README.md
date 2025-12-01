@@ -9,6 +9,7 @@ Then either rename your namelist to first_names.txt or last_names.txt exactly or
 
 Update:12/1/25:
 I have added a preliminary skill attribute generator that should generate skill values based on position and archetype. 
+In Order to use this, download the Json File and Attribute Generator python file and store in the same place as the main file
 I have also added skin tone and head generator incase someone wants to use that to decided how their players look.
 Please note this is extremely rudimentary and will give values that might be unrealistic to gameplay and actual roster generation in CFB 26
 Please leave any feedback, adjustments you would make the weights, and requests to my reddit:
