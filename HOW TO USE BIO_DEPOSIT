@@ -1,4 +1,4 @@
-How to use Navigator.py
+How to use BIO_DEPOSIT.py
 Step 1: Install dependencies
   1) Python
   download python 3 at https://www.python.org/downloads/
@@ -10,7 +10,7 @@ Step 1: Install dependencies
   3) make sure Firefox is installed if not already
 Step 2: Running the program
   1) open up IDLE, which should be installed with python, if you cant find it search for it
-  2) in the IDLE window, go to file, click open, and navigate to where you downloaded Navigator.py and select it
+  2) in the IDLE window, go to file, click open, and navigate to where you downloaded BIO_DEPOSIT.py and select it
   3) A new window pops up with the code, on that window on the top find the RUN tab and select Run Module 
   4) the program should start, on the original IDLE window you should now see blue text asking for an XLSX file.
   5) if you haven't, create a roster file, or generate one with the roster generator program. Look in the RosterExample.xlsx file included on the main branch
